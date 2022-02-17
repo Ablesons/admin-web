@@ -8,7 +8,8 @@
   "scripts": {
     "serve": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
@@ -30,10 +31,12 @@
     "@typescript-eslint/parser": "^5.12.0",
     "@vitejs/plugin-vue": "^2.2.0",
     "autoprefixer": "^10.4.2",
+    "conventional-changelog-cli": "^2.2.2",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.4.1",
+    "global": "^4.4.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
     "postcss": "^8.4.6",
