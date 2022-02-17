@@ -14,7 +14,18 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['function', 'if', 'each', 'include', 'mixin'],
+        ignoreAtRules: [
+          'tailwind',
+          'apply',
+          'variants',
+          'responsive',
+          'screen',
+          'function',
+          'if',
+          'each',
+          'include',
+          'mixin',
+        ],
       },
     ],
     // ↓禁止空来源。
@@ -192,6 +203,45 @@ module.exports = {
       'unicode-bidi',
       'speak',
     ],
+    'order/order': [
+      [
+        'dollar-variables',
+        'custom-properties',
+        'at-rules',
+        'declarations',
+        {
+          type: 'at-rule',
+          name: 'supports',
+        },
+        {
+          type: 'at-rule',
+          name: 'media',
+        },
+        'rules',
+      ],
+      { severity: 'warning' },
+    ],
   },
   ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts'],
+  overrides: [
+    {
+      files: ['*.vue', '**/*.vue', '*.html', '**/*.html'],
+      extends: ['stylelint-config-recommended', 'stylelint-config-html'],
+      rules: {
+        'keyframes-name-pattern': null,
+        'selector-pseudo-class-no-unknown': [
+          true,
+          {
+            ignorePseudoClasses: ['deep', 'global'],
+          },
+        ],
+        'selector-pseudo-element-no-unknown': [
+          true,
+          {
+            ignorePseudoElements: ['v-deep', 'v-global', 'v-slotted'],
+          },
+        ],
+      },
+    },
+  ],
 };
