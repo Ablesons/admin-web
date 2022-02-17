@@ -23,6 +23,8 @@
   ],
   "dependencies": {
     "@iconify/iconify": "^2.1.2",
+    "axios": "^0.26.0",
+    "nprogress": "^0.2.0",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
@@ -32,6 +34,7 @@
     "@commitlint/config-conventional": "^16.2.1",
     "@iconify/json": "^2.1.2",
     "@types/fs-extra": "^9.0.13",
+    "@types/nprogress": "^0.2.0",
     "@types/rollup-plugin-visualizer": "^4.2.1",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
