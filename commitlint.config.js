@@ -32,6 +32,7 @@ module.exports = {
   },
   // ↓自定义提交消息规则
   rules: {
+    'subject-case': [0],
     // ↓body以空白行开头
     'body-leading-blank': [2, 'always'],
     // ↓footer以空白行开头
