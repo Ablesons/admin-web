@@ -14,7 +14,7 @@ export type Component<T = any> =
   | (() => Promise<T>);
 
 // @ts-ignore
-export interface AppRouteRecordRaw extends Omit<RouteRecordRaw, "meta"> {
+export interface AppRouteRecordRaw extends Omit<RouteRecordRaw, 'meta'> {
   name: string;
   meta: RouteMeta;
   component?: Component | string;
