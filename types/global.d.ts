@@ -5,16 +5,16 @@
  * @LastEditors: Ableson
  * @LastEditTime: 2022/2/18 11:04
  */
-import { VNode } from "vue";
+import { ComponentRenderProxy, VNode } from 'vue';
 
 declare global {
   declare type Recordable<T = any> = Record<string, T>;
 
   namespace JSX {
     // tslint:disable no-empty-interface
-    interface Element extends VNode {}
+    type Element = VNode;
     // tslint:disable no-empty-interface
-    interface ElementClass extends Vue {}
+    type ElementClass = ComponentRenderProxy;
     interface ElementAttributesProperty {
       $props: any;
     }
