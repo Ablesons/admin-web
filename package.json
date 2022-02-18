@@ -44,7 +44,7 @@
     "autoprefixer": "^10.4.2",
     "conventional-changelog-cli": "^2.2.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.9.0",
+    "eslint": "^7.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.4.1",
