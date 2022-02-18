@@ -68,7 +68,7 @@ function getConfFiles() {
  */
 export function getEnvConfig(match = 'VITE_GLOB_', confFiles = getConfFiles()) {
   let envConfig = {};
-  confFiles.forEach((item) => {
+  confFiles.forEach(item => {
     try {
       const env = dotenv.parse(fs.readFileSync(path.resolve(process.cwd(), item)));
       envConfig = { ...envConfig, ...env };
@@ -77,7 +77,7 @@ export function getEnvConfig(match = 'VITE_GLOB_', confFiles = getConfFiles()) {
     }
   });
   const reg = new RegExp(`^(${match})`);
-  Object.keys(envConfig).forEach((key) => {
+  Object.keys(envConfig).forEach(key => {
     if (!reg.test(key)) {
       Reflect.deleteProperty(envConfig, key);
     }

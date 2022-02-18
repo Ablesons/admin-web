@@ -4,7 +4,7 @@ module.exports = {
   // 缩进字节数
   tabWidth: 2,
   // 缩进使用tab，不使用空格
-  useTabs: true,
+  useTabs: false,
   // 句尾添加分号
   semi: true,
   vueIndentScriptAndStyle: true,

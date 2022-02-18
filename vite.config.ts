@@ -2,6 +2,7 @@ import { UserConfig, ConfigEnv, loadEnv } from 'vite';
 import pkg from './package.json';
 import { resolve } from 'path';
 import { wrapperEnv } from './build/utils';
+import { OUTPUT_DIR } from './build/constant';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
