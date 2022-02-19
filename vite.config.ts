@@ -3,6 +3,8 @@ import pkg from './package.json';
 import { resolve } from 'path';
 import { wrapperEnv } from './build/utils';
 import { OUTPUT_DIR } from './build/constant';
+import { createProxy } from './build/vite/proxy';
+import { createVitePlugins } from './build/vite/plugin';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -26,10 +28,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 
   const isBuild = command === 'build';
 
-  console.log({ VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE });
   console.log(isBuild);
-  console.log(__APP_INFO__);
-  console.log(pathResolve);
   return {
     root,
     base: VITE_PUBLIC_PATH,
@@ -62,7 +61,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // 在开发服务器启动时自动在浏览器中打开应用程序。
       open: true,
       // 为开发服务器配置自定义代理规则
-      proxy: '',
+      proxy: createProxy(VITE_PROXY),
     },
     build: {
       target: 'es2015',
@@ -96,7 +95,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         },
       },
     },
-    plugins: '',
+    // 项目使用的vite插件。由于数量大，所以单独提取和管理
+    plugins: createVitePlugins(viteEnv, isBuild),
   };
 };
 
