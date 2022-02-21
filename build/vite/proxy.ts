@@ -5,14 +5,22 @@
  * @LastEditors: Ableson
  * @LastEditTime: 2022/2/19 11:27
  */
+
+/**
+ * .env.development 的 代理配置
+ */
 import type { ProxyOptions } from 'vite';
 
+// 第一项被代理的路径，第二项代理至的路径
 type ProxyItem = [string, string];
 
+// 方法接收的参数
 type ProxyList = ProxyItem[];
 
+// Vite代理所接收对象类型
 type ProxyTargetList = Record<string, ProxyOptions>;
 
+// https类型的URL的匹配正则
 const httpsRE = /^https:\/\//;
 
 /**

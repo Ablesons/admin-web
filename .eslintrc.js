@@ -139,7 +139,7 @@ module.exports = {
     'no-native-reassign': 2, // 不能重写native对象
 
     // 代码风格
-    indent: [2, 2, { SwitchCase: 1 }], // 两个空格的缩进
+    indent: [2, 2, { SwitchCase: 1, flatTernaryExpressions: false }], // 两个空格的缩进
     quotes: [0, 'single'], // js必须使用单引号
     'no-else-return': 1, // 如果if语句里面有return,后面不能跟else语句
     'no-multi-spaces': 1, // 不能用多余的空格
