@@ -97,7 +97,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     // 项目使用的vite插件。由于数量大，所以单独提取和管理
     plugins: createVitePlugins(viteEnv, isBuild),
 
-    optimizeDeps: {
+    /*optimizeDeps: {
       include: [
         '@vue/runtime-core',
         '@vue/shared',
@@ -107,6 +107,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         'vxe-table/lib/locale/lang/zh-CN',
         'vxe-table/lib/locale/lang/en-US',
       ],
-    },
+    },*/
   };
 };
