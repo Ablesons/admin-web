@@ -13,7 +13,7 @@ import purgeIcons from 'vite-plugin-purge-icons';
 import windiCSS from 'vite-plugin-windicss';
 import { configHtmlPlugin } from './html';
 import { configSvgIconsPlugin } from './svgSprite';
-// import { configStyleImportPlugin } from './styleImport';
+import { configStyleImportPlugin } from './styleImport';
 import { configVisualizerConfig } from './visualizer';
 import { configThemePlugin } from './theme';
 import { configImageminPlugin } from './imagemin';
@@ -46,7 +46,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   vitePlugins.push(purgeIcons());
 
   // vite-plugin-style-import
-  // vitePlugins.push(configStyleImportPlugin(isBuild));
+  vitePlugins.push(configStyleImportPlugin());
 
   // rollup-plugin-visualizer
   vitePlugins.push(configVisualizerConfig());

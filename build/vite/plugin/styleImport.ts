@@ -8,13 +8,19 @@
  */
 import { createStyleImportPlugin } from 'vite-plugin-style-import';
 
-export function configStyleImportPlugin(_isBuild: boolean) {
-  console.log(_isBuild);
+export function configStyleImportPlugin() {
   return createStyleImportPlugin({
     libs: [
       {
+        libraryName: 'vxe-table',
+        esModule: true,
+        resolveComponent: name => `vxe-table/es/${name}`,
+        resolveStyle: name => `vxe-table/es/${name}/style.css`,
+      },
+      {
         libraryName: 'element-plus',
         esModule: true,
+        resolveComponent: name => `element-plus/lib/${name}`,
         resolveStyle: name => `element-plus/lib/theme-chalk/${name}.css`,
       },
     ],

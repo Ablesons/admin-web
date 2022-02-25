@@ -1,5 +1,6 @@
 import { UserConfig, ConfigEnv, loadEnv } from 'vite';
 import pkg from './package.json';
+import dayjs from 'dayjs';
 import { resolve } from 'path';
 import { wrapperEnv } from './build/utils';
 import { OUTPUT_DIR } from './build/constant';
@@ -13,10 +14,9 @@ function pathResolve(dir: string) {
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
-  // lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+  lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 };
 
-// https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
 
@@ -33,12 +33,14 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     base: VITE_PUBLIC_PATH,
     resolve: {
       alias: [
-        // /@/xxxx => src/xxxx
+        {
+          find: 'vue-i18n',
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+        },
         {
           find: /\/@\//,
           replacement: pathResolve('src') + '/',
         },
-        // /#/xxxx => types/xxxx
         {
           find: /\/#\//,
           replacement: pathResolve('types') + '/',
@@ -97,16 +99,16 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     // 项目使用的vite插件。由于数量大，所以单独提取和管理
     plugins: createVitePlugins(viteEnv, isBuild),
 
-    /*optimizeDeps: {
+    optimizeDeps: {
       include: [
         '@vue/runtime-core',
         '@vue/shared',
-        '@iconify/vue',
+        // '@iconify/vue',
         'element-plus/lib/locale/lang/en',
         'element-plus/lib/locale/lang/zh-cn',
         'vxe-table/lib/locale/lang/zh-CN',
         'vxe-table/lib/locale/lang/en-US',
       ],
-    },*/
+    },
   };
 };
