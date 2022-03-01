@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true,
+    es6: true
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -13,22 +13,22 @@ module.exports = {
     jsxPragma: 'React',
     ecmaFeatures: {
       jsx: true,
-      tsx: true,
-    },
+      tsx: true
+    }
   },
   overrides: [
     {
       files: ['**/__tests__/*.{j,t}s?(x)'],
       env: {
-        mocha: true,
-      },
-    },
+        mocha: true
+      }
+    }
   ],
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
 
   plugins: ['flowtype', '@typescript-eslint'],
@@ -66,16 +66,16 @@ module.exports = {
       'error',
       {
         argsIgnorePattern: '^h$',
-        varsIgnorePattern: '^h$',
-      },
+        varsIgnorePattern: '^h$'
+      }
     ],
     // ↓禁止使用未使用的变量
     'no-unused-vars': [
       'error',
       {
         argsIgnorePattern: '^h$',
-        varsIgnorePattern: '^h$',
-      },
+        varsIgnorePattern: '^h$'
+      }
     ],
     // ↓强制属性顺序
     'vue/attributes-order': 'off',
@@ -101,11 +101,11 @@ module.exports = {
         html: {
           void: 'always',
           normal: 'never',
-          component: 'always',
+          component: 'always'
         },
         svg: 'always',
-        math: 'always',
-      },
+        math: 'always'
+      }
     ],
 
     // 警告
@@ -147,8 +147,8 @@ module.exports = {
       1,
       {
         beforeColon: false,
-        afterColon: true,
-      },
+        afterColon: true
+      }
     ], // 对象字面量中冒号的前后空格
     'block-scoped-var': 2, // 块语句中使用var
     'consistent-return': 2, // return 后面是否允许省略
@@ -167,15 +167,15 @@ module.exports = {
     'no-redeclare': [
       2,
       {
-        builtinGlobals: true,
-      },
+        builtinGlobals: true
+      }
     ], // 禁止重复声明变量
     'no-unused-expressions': [
       2,
       {
         allowShortCircuit: true,
-        allowTernary: true,
-      },
+        allowTernary: true
+      }
     ], // 禁止无用的表达式
     'no-useless-call': 2, // 禁止不必要的call和apply
     'no-useless-concat': 2,
@@ -186,15 +186,15 @@ module.exports = {
       0,
       {
         requireParamDescription: true,
-        requireReturnDescription: true,
-      },
+        requireReturnDescription: true
+      }
     ], // jsdoc规则
     'no-warning-comments': [
       2,
       {
         terms: ['todo', 'fixme', 'any other term'],
-        location: 'anywhere',
-      },
+        location: 'anywhere'
+      }
     ], // 不能有警告备注
     curly: 1, // 必须使用 if(){} 中的{}
 
@@ -202,6 +202,6 @@ module.exports = {
     'no-duplicate-imports': 1,
 
     // prettier 代码风格校验
-    'prettier/prettier': 'error',
-  },
+    'prettier/prettier': 'error'
+  }
 };

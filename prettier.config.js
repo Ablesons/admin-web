@@ -28,5 +28,5 @@ module.exports = {
   proseWrap: 'never',
   htmlWhitespaceSensitivity: 'strict',
   // 结尾是 \n \r \n\r auto
-  endOfLine: 'lf',
+  endOfLine: 'lf'
 };
