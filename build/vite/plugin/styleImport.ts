@@ -14,12 +14,14 @@ export function configStyleImportPlugin() {
       {
         libraryName: 'vxe-table',
         esModule: true,
+        // @ts-ignore
         resolveComponent: name => `vxe-table/es/${name}`,
         resolveStyle: name => `vxe-table/es/${name}/style.css`,
       },
       {
         libraryName: 'element-plus',
         esModule: true,
+        // @ts-ignore
         resolveComponent: name => `element-plus/lib/${name}`,
         resolveStyle: name => `element-plus/lib/theme-chalk/${name}.css`,
       },
