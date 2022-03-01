@@ -121,7 +121,7 @@ module.exports = {
     'flowtype/use-flow-type': 1,
 
     // 错误
-    // 'comma-dangle': ['error', 'never'], // 对象字面量项尾不能有逗号
+    'comma-dangle': ['error', 'never'], // 对象字面量项尾不能有逗号
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off', // 禁止使用debugger
     'no-constant-condition': 2, // 禁止在条件中使用常量表达式 if(true) if(1)
     'no-dupe-args': 2, // 函数参数不能重复
