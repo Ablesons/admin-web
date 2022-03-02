@@ -1,5 +1,7 @@
 <template>
-  <ElConfigProvider> 123456 </ElConfigProvider>
+  <ElConfigProvider>
+    <RouterView />
+  </ElConfigProvider>
 </template>
 
 <script lang="ts" setup>
