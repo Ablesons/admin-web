@@ -1,11 +1,12 @@
 <template>
   <div class="anticon" :class="getAppLogoClass" @click="goHome">
     <img src="../../../assets/images/logo.png" alt="" />
-    <div class="ml-2 truncate md:opacity-100">AdminWeb</div>
+    <div class="ml-2 truncate md:opacity-100">{{ title }}</div>
   </div>
 </template>
 <script lang="ts" setup>
   import { computed } from 'vue';
+  import { useGlobSetting } from '/@/hooks/setting';
 
   const props = defineProps({
     theme: {
@@ -15,6 +16,8 @@
     showTitle: { type: Boolean, default: true },
     alwaysShowTitle: { type: Boolean }
   });
+
+  export const { title } = useGlobSetting();
 
   export const getAppLogoClass: string[] = computed(() => [props.theme]);
 
