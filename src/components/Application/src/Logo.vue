@@ -11,10 +11,10 @@
   const props = defineProps({
     theme: {
       type: String,
-      validator: (value: string): boolean => ['light', 'dark'].includes(value)
+      validator: (value: string): boolean => ['light', 'dark'].includes(value),
     },
     showTitle: { type: Boolean, default: true },
-    alwaysShowTitle: { type: Boolean }
+    alwaysShowTitle: { type: Boolean },
   });
 
   export const { title } = useGlobSetting();

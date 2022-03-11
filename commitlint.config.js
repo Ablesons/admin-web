@@ -1,6 +1,6 @@
 module.exports = {
   // ↓忽略包含init的提交消息
-  ignores: [(commit) => commit.includes('init')],
+  ignores: [commit => commit.includes('init')],
   // ↓按照传统消息格式来验证
   extends: ['@commitlint/config-conventional'],
   // ↓这里是自定义解析器，看不太懂，直接搬代码吧

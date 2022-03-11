@@ -19,4 +19,4 @@ export const mainOutRoutes: AppRouteModule[] = [
   },
 ];
 
-export const mainOutRouteNames = mainOutRoutes.map((item) => item.name);
+export const mainOutRouteNames = mainOutRoutes.map(item => item.name);
