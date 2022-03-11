@@ -6,10 +6,14 @@
   "author": "Zander",
   "license": "MIT",
   "scripts": {
+    "bootstrap": "yarn install",
     "serve": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "log": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
+    "clean:lib": "rimraf node_modules",
+    "reinstall": "rimraf yarn.lock && yarn bootstrap"
   },
   "repository": {
     "type": "git",
