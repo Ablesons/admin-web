@@ -13,6 +13,7 @@ import '/@/assets/iconfont/iconfont.css';
 import 'v-contextmenu/dist/themes/default.css';
 import { createApp } from 'vue';
 import App from './App.vue';
+import { MotionPlugin } from '@vueuse/motion';
 import { setupComponents } from '/@/plugins';
 import { setupRouter } from './router';
 import { setupStore } from '/@/store';
@@ -26,7 +27,7 @@ async function setupVue() {
 
   setupComponents(app);
 
-  app.mount('#app');
+  app.use(MotionPlugin).mount('#app');
 }
 
 setupVue().then();
