@@ -1,5 +1,5 @@
 <template>
-  <div>234567890</div>
+  <div class="loader">234567890</div>
 </template>
 
 <script></script>
