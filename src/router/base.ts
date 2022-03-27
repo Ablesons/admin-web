@@ -1,5 +1,7 @@
+import { RouteRecordRaw, RouteComponent } from 'vue-router';
+import remainingRouter from './modules/remaining';
 import { ascending } from '/@/router/constant';
-import { buildHierarchyTree } from '/@/utils/tree';
+// import { buildHierarchyTree } from '/@/utils/tree';
 const Layout = () => import('/@/layout/index.vue');
 
 // 原始静态路由（未做任何处理）
@@ -19,7 +21,7 @@ const routes = [
       {
         path: '/welcome',
         name: 'welcome',
-        component: () => import('/@/views/welcome.vue'),
+        component: () => import('/@/views/basis/welcome.vue'),
         meta: {
           title: '首页',
           i18n: true,
@@ -70,4 +72,12 @@ const routes = [
 ];
 
 // 导出处理后的静态路由（三级及以上的路由全部拍成二级）
-export const constantRoutes = buildHierarchyTree(ascending(routes));
+export const constantRoutes: Array<RouteRecordRaw> = ascending(routes);
+
+// 用于渲染菜单，保持原始层级
+export const constantMenus: Array<RouteComponent> = ascending(routes).concat(...remainingRouter);
+
+// 不参与菜单的路由
+export const remainingPaths = Object.keys(remainingRouter).map(v => {
+  return remainingRouter[v].path;
+});

@@ -7,7 +7,7 @@ import {
 } from 'vue-router';
 import { router } from '/@/router/index';
 import { RouteConfigs } from './types';
-import { getAsyncRoutes } from '/@/api/user';
+// import { getAsyncRoutes } from '/@/api/user';
 import { buildHierarchyTree } from '/@/utils/tree';
 
 // 按照路由中meta下的rank等级升序来排序路由
