@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { store } from '/@/store';
 import { useLayoutSetting } from '/@/hooks/setting';
-import elementVariables from '/@/styles/element-variables.scss';
+import elementVariables from '/@/style/element-variables.scss';
 
 export interface ISettingsState {
   theme: string;

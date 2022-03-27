@@ -475,7 +475,7 @@
         overflow: hidden;
         white-space: nowrap;
 
-        :deep (.el-scrollbar__bar) {
+        ::v-deep(.el-scrollbar__bar) {
           bottom: 0;
           height: 3px;
         }
@@ -588,7 +588,7 @@
 
         &.divider {
           height: 1px;
-          padding: 0px 0px;
+          padding: 0;
           margin: 4px 0;
           background-color: #f0f0f0;
         }
