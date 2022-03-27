@@ -1,5 +1,3 @@
-import { RouteRecordRaw } from 'vue-router';
-
 /**
  * 提取菜单树中的每一项uniqueId
  * @param {Array} {menuTree 菜单树}
@@ -56,7 +54,7 @@ export function deleteChildren(menuTree, pathList = []) {
 }
 
 // 创建层级关系
-export function buildHierarchyTree(menuTree: RouteRecordRaw[], pathList?: RouteRecordRaw[] = []) {
+export function buildHierarchyTree(menuTree, pathList) {
   if (!Array.isArray(menuTree)) {
     console.error('必须接收一个数组');
     return [];
@@ -65,6 +63,13 @@ export function buildHierarchyTree(menuTree: RouteRecordRaw[], pathList?: RouteR
     return [];
   }
   for (const [key, node] of menuTree.entries()) {
+    node.id = key;
+    node.parentId = pathList.length ? pathList[pathList.length - 1] : null;
+    node.pathList = [...pathList, node.id];
+    const hasChildren = node.children && node.children.length > 0;
+    if (hasChildren) {
+      buildHierarchyTree(node.children, node.pathList);
+    }
   }
   return menuTree;
 }

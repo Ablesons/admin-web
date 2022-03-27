@@ -4,12 +4,14 @@ import { toRouteType } from './types';
 // import { isUrl } from '/@/utils/verify';
 import { getHistoryMode } from '/@/router/constant';
 import NProgress from '/@/utils/progress';
+import { constantRoutes } from '/@/router/base';
 
+console.log(constantRoutes);
 // 创建路由实例
 export const router = createRouter({
   history: getHistoryMode(import.meta.env.VITE_ROUTER_HISTORY),
   routes: [
-    {
+    /*{
       path: '/',
       name: 'login',
       component: () => import('/@/layout/index.vue'),
@@ -19,18 +21,18 @@ export const router = createRouter({
         i18n: true,
         rank: 101,
       },
-    },
-    /*{
-      path: '/login',
+    },*/
+    {
+      path: '/',
       name: 'login',
-      component: () => import('/@/views/basis/login.vue'),
+      component: () => import('/@/views/error/500.vue'),
       meta: {
         title: '登录',
         showLink: false,
         i18n: true,
         rank: 101,
       },
-    },*/
+    },
   ],
   strict: true,
   /* eslint-disable */
