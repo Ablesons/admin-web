@@ -1,53 +1,132 @@
-import { store } from '/@/store';
 import { defineStore } from 'pinia';
-import { IAppState } from '/#/store';
-import { deviceDetection } from '/@/utils/device';
-import { localStorageUtils } from '/@/utils/storage';
+import { store } from '/@/store';
+import {
+  getLanguage,
+  getSidebarStatus,
+  getSize,
+  setLanguage,
+  setSidebarStatus,
+  setSize,
+} from '/@/utils/cacheUtils';
+import { getCssVar, setCssVar } from '/@/utils/cssUtils';
+
+/**
+ * 定义设备枚举类型
+ */
+export enum DeviceType {
+  Mobile,
+  Desktop,
+}
+
+export interface IAppState {
+  device: DeviceType;
+  sidebar: {
+    opened: boolean;
+    menuBg: string;
+    menuText: string;
+    menuActiveText: string;
+    // withoutAnimation: boolean;
+  };
+  language: string;
+  size: string;
+}
 
 const appStore = defineStore({
   id: 'appStore',
   state: (): IAppState => ({
+    device: DeviceType.Desktop,
     sidebar: {
-      opened: true,
-      withoutAnimation: false,
-      isClickHamburger: false,
+      opened: getSidebarStatus() !== 'closed',
+      menuBg: getCssVar('--menuBg'),
+      menuText: getCssVar('--menuText'),
+      menuActiveText: getCssVar('--menuActiveText'),
     },
-    language: 'zh',
-    layout: 'vertical',
-    device: deviceDetection() ? 'mobile' : 'desktop',
+    language: getLanguage(),
+    size: getSize(),
   }),
   getters: {
-    getSidebarStatus(): boolean {
+    getSidebarOpened(): boolean {
       return this.sidebar.opened;
     },
-    getDevice(): string {
-      return this.device;
+    getLanguage(): string {
+      return this.language;
+    },
+    getSize(): string {
+      const size = getSize() || 'mini';
+      document.getElementsByTagName('body')[0].className = `tw-size-${size}`;
+      return size;
+    },
+    getVxeSize(): Nullable<string> {
+      let size: Nullable<string> = this.getSize;
+      size = size === 'large' ? null : size;
+      return size;
     },
   },
   actions: {
-    toggleDevice(device: string) {
+    setDevice(device: DeviceType) {
       this.device = device;
     },
-    async toggleSideBar(opened?: boolean, resize?: string) {
-      const layout = localStorageUtils.getItem('responsive-layout');
-      if (opened && resize) {
-        this.sidebar.withoutAnimation = true;
-        this.sidebar.opened = true;
-        layout.sidebarStatus = true;
-      } else if (!opened && resize) {
-        this.sidebar.withoutAnimation = true;
-        this.sidebar.opened = false;
-        layout.sidebarStatus = false;
-      } else if (!opened && !resize) {
-        this.sidebar.withoutAnimation = false;
-        this.sidebar.opened = !this.sidebar.opened;
-        this.sidebar.isClickHamburger = !this.sidebar.opened;
-        layout.sidebarStatus = this.sidebar.opened;
+
+    /**
+     * 切换左侧菜单折叠状态
+     */
+    setToggleSideBar(): void {
+      this.sidebar.opened = !this.sidebar.opened;
+
+      if (this.sidebar.opened) {
+        setSidebarStatus('opened');
+      } else {
+        setSidebarStatus('closed');
       }
-      localStorageUtils.setItem('responsive-layout', layout);
     },
-    setLayout(layout: string) {
-      this.layout = layout;
+    /**
+     * 折叠左侧菜单
+     */
+    setSidebarClosed() {
+      this.sidebar.opened = false;
+
+      if (this.sidebar.opened) {
+        setSidebarStatus('opened');
+      } else {
+        setSidebarStatus('closed');
+      }
+    },
+
+    /**
+     * 左侧菜单背景色
+     * @param color
+     */
+    setSidebarMenuBg(color: string) {
+      this.sidebar.menuBg = color;
+      setCssVar('--menuBg', color);
+    },
+
+    /**
+     * 左侧菜单字体颜色
+     * @param color
+     */
+    setSidebarMenuText(color: string) {
+      this.sidebar.menuText = color;
+      setCssVar('--menuText', color);
+    },
+
+    /**
+     * 左侧菜单选中字体颜色
+     * @param color
+     */
+    setSidebarMenuActiveText(color: string) {
+      this.sidebar.menuActiveText = color;
+      setCssVar('--menuActiveText', color);
+    },
+
+    setLanguage(language: string): void {
+      this.language = language;
+
+      setLanguage(language);
+    },
+    setSize(size: string): void {
+      this.size = size;
+      setSize(this.size);
     },
   },
 });

@@ -1,0 +1,41 @@
+/* vxe 样式 */
+
+//////////////////////////////////////////////////
+// 变量
+//////////////////////////////////////////////////
+
+// loading
+$vxe-loading-background-color: rgba(0, 0, 0, 0.1) !default;
+
+//////////////////////////////////////////////////
+// loading
+//////////////////////////////////////////////////
+@keyframes tw-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.is--loading {
+  .vxe-loading {
+    .vxe-loading--spinner {
+      &:before {
+        width: 36px;
+        height: 36px;
+        border: 3px solid #409eff;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: tw-rotate 1s linear infinite;
+        background-color: transparent;
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+@import 'vxe-table/styles/index.scss';

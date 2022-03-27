@@ -51,7 +51,7 @@
           <div>
             <h5>用户名</h5>
             <input
-              v-model="user"
+              v-model="formData.loginName"
               type="text"
               class="input"
               @focus="onUserFocus"
@@ -80,7 +80,7 @@
           <div>
             <h5>密码</h5>
             <input
-              v-model="pwd"
+              v-model="formData.password"
               type="password"
               class="input"
               @focus="onPwdFocus"
@@ -112,18 +112,28 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, reactive } from 'vue';
   import { useRouter } from 'vue-router';
   import { addClass, removeClass } from '/@/utils/operate';
+  import { useLoginUserStore } from '/@/store/modules/loginUser';
   import bg from '/@/assets/img/bg.png';
   import logo from '/@/assets/logo.png';
 
   const router = useRouter();
+  const loginUserStore = useLoginUserStore();
   let user = ref('admin');
   let pwd = ref('123456');
 
+  const formData = reactive({
+    loginName: 'developer',
+    password: '1qa2ws3ed',
+  });
+
   const onLogin = (): void => {
-    router.push('/');
+    loginUserStore.login(formData).then(result => {
+      console.log(result);
+      router.push({ path: '/' });
+    });
   };
 
   function onUserFocus() {

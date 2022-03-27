@@ -1,0 +1,173 @@
+html {
+  height: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    '微软雅黑', Arial, sans-serif;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+//////////////////////////////////////////////////
+// tw-layout
+//////////////////////////////////////////////////
+.tw-layout-wrapper {
+  height: calc(100% - 20px);
+  padding: 10px;
+  background-color: #ffffff;
+
+  .toolbar-divider {
+    height: 2px;
+    margin: 8px 0;
+    background-color: #0099cc;
+  }
+
+  .header-wrapper {
+    .el-select {
+      width: 100%;
+    }
+  }
+
+  .mian-wrapper {
+    min-height: 200px;
+  }
+
+  // toolbar
+  .tw-toolbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .toolbar-left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: calc(100vw - 330px);
+
+      .toolbar-left-title {
+        width: 100px;
+        .btns-icon {
+          width: 1.5em;
+          height: 1.5em;
+        }
+        .txt {
+          color: #666;
+          font-size: 12px;
+          margin: 0 5px;
+          letter-spacing: 1px;
+        }
+      }
+
+      .toolbar-left-btns {
+        display: flex;
+        align-items: center;
+
+        .el-divider {
+          height: 25px;
+          width: 2px;
+          margin: 0px 10px;
+          background-color: #dcdfe6;
+        }
+      }
+
+      .toolbar-left-more {
+        margin-left: 5px;
+      }
+    }
+
+    .toolbar-right {
+      cursor: pointer;
+
+      .fold-icon {
+        width: 1em;
+        height: 1em;
+        font-weight: bold;
+        margin: 0 8px;
+      }
+
+      .txt {
+        padding: 5px 8px;
+        background-color: #0099cc;
+        font-size: 12px;
+        color: #ffffff;
+        border-radius: 2px;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
+
+// 折叠起来的更多操作面板
+.tw-toolbar-left-more {
+  min-width: auto !important;
+  .more-btns {
+    display: flex;
+    flex-wrap: wrap;
+
+    .el-button {
+      margin: 3px 10px 3px 0px;
+    }
+
+    .el-divider {
+      height: 2px;
+      margin: 5px 0px;
+      border-top: 0px;
+      background-color: #dcdfe6;
+    }
+  }
+}
+
+//////////////////////////////////////////////////
+// tw-table
+//////////////////////////////////////////////////
+.tw-table-wrapper {
+  height: 100%;
+
+  .vxe-pager--left-wrapper {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    .el-button {
+      padding: 6px;
+      min-height: 25px;
+    }
+
+    .tw-table-page-left-icon {
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+
+  // 列设置弹框
+  .tw-custom-column-wrapper {
+    .custom-column-checked-all {
+      padding-left: 23px;
+    }
+    .custom-column-divider {
+      margin: 3px 0px;
+    }
+  }
+}
+
+//////////////////////////////////////////////////
+// tw-dialog
+//////////////////////////////////////////////////
+.tw-dialog-wrapper {
+  .el-form {
+    .el-select {
+      width: 100%;
+    }
+  }
+}
