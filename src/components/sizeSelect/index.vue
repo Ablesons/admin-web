@@ -57,6 +57,10 @@
 </script>
 
 <style scoped lang="scss">
+  ::v-deep(.el-dropdown) {
+    vertical-align: middle;
+  }
+
   .size-select {
     padding: 0 10px;
   }
