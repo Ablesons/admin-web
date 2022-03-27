@@ -57,6 +57,8 @@
     background: #2b2f3a;
 
     & .sidebar-logo-link {
+      display: flex;
+      align-items: center;
       width: 100%;
       height: 100%;
 
