@@ -10,7 +10,7 @@ import { $post } from '/@/utils/http';
  */
 export const apiLogin = (params: RequestParams) =>
   $post<LoginUserResultModel>({
-    url: '/sys/twbUser/login',
+    url: '/common/login',
     params: params,
     contentType: ContentTypeEnum.form,
   });
@@ -20,7 +20,7 @@ export const apiLogin = (params: RequestParams) =>
  */
 export const apiLoginByToken = () =>
   $post<LoginUserResultModel>({
-    url: '/sys/twbUser/loginByToken',
+    url: '/common/loginByToken',
   });
 
 /**
@@ -29,5 +29,5 @@ export const apiLoginByToken = () =>
  */
 export const apiLogOut = () =>
   $post<Result<string>>({
-    url: '/sys/twbUser/logOut',
+    url: '/common/logOut',
   });
