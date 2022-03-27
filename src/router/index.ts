@@ -8,7 +8,30 @@ import NProgress from '/@/utils/progress';
 // 创建路由实例
 export const router = createRouter({
   history: getHistoryMode(import.meta.env.VITE_ROUTER_HISTORY),
-  routes: [],
+  routes: [
+    {
+      path: '/',
+      name: 'login',
+      component: () => import('/@/layout/index.vue'),
+      meta: {
+        title: '登录',
+        showLink: false,
+        i18n: true,
+        rank: 101,
+      },
+    },
+    /*{
+      path: '/login',
+      name: 'login',
+      component: () => import('/@/views/basis/login.vue'),
+      meta: {
+        title: '登录',
+        showLink: false,
+        i18n: true,
+        rank: 101,
+      },
+    },*/
+  ],
   strict: true,
   /* eslint-disable */
   // @ts-ignore

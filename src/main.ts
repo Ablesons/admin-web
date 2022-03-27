@@ -14,18 +14,21 @@ import 'v-contextmenu/dist/themes/default.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 import { MotionPlugin } from '@vueuse/motion';
-import { setupComponents } from '/@/plugins';
+import { setupPlugins } from '/@/plugins';
+import { setupDirectives } from '/@/directives';
 import { setupRouter } from './router';
 import { setupStore } from '/@/store';
 
 async function setupVue() {
   const app = createApp(App);
 
+  setupDirectives(app);
+
   setupStore(app);
 
-  await setupRouter(app);
+  setupRouter(app);
 
-  setupComponents(app);
+  setupPlugins(app);
 
   app.use(MotionPlugin).mount('#app');
 }

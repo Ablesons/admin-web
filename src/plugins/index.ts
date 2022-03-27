@@ -4,7 +4,7 @@ import { useElementPlus } from '/@/plugins/element-plus';
 // 自定义 Icon 组件
 import { IconOffLine, IconOnline, IconSvg } from '/@/components/Icon';
 
-export function setupComponents(app: App<Element>) {
+export function setupPlugins(app: App<Element>) {
   app.use(useElementPlus);
   app.component('IconSvg', IconSvg);
   app.component('IconOffLine', IconOffLine);
