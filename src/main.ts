@@ -4,8 +4,6 @@ import 'virtual:windi-components.css';
 import 'virtual:windi-utilities.css';
 // 注册SVG雪碧图标
 import 'virtual:svg-icons-register';
-// 导入公共样式
-import '/@/style/index.scss';
 // 导入字体图标
 import '/@/assets/iconfont/iconfont.js';
 import '/@/assets/iconfont/iconfont.css';
@@ -18,6 +16,9 @@ import { setupPlugins } from '/@/plugins';
 import { setupDirectives } from '/@/directives';
 import { setupRouter } from './router';
 import { setupStore } from '/@/store';
+
+// 导入公共样式
+import '/@/style/index.scss';
 
 async function setupVue() {
   const app = createApp(App);
